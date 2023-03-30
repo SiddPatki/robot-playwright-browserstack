@@ -9,8 +9,8 @@ class CustomLib:
     desired_cap = {
     'os': 'osx',
     'os_version': 'catalina',
-    'browser': 'chrome',  # allowed browsers are `chrome`, `edge`, `playwright-chromium`, `playwright-firefox` and `playwright-webkit`
-    'browser_version': 'latest', # this capability is valid only for branded `chrome` and `edge` browsers and you can specify any browser version like `latest`, `latest-beta`, `latest-1` and so on.
+    'browser': 'playwright-firefox',  # allowed browsers are `chrome`, `edge`, `playwright-chromium`, `playwright-firefox` and `playwright-webkit`
+    # 'browser_version': 'latest', # this capability is valid only for branded `chrome` and `edge` browsers and you can specify any browser version like `latest`, `latest-beta`, `latest-1` and so on.
     'browserstack.username': os.environ['BROWSERSTACK_USERNAME'],
     'browserstack.accessKey': os.environ['BROWSERSTACK_ACCESS_KEY'],
     'browserstack.geoLocation': 'FR',
@@ -40,7 +40,8 @@ class CustomLib:
         return cdpUrl
     
     def getPlatformDetails(self):
-        platformDetails = CustomLib.desired_cap['os'] + " " + CustomLib.desired_cap['os_version']+ " " + CustomLib.desired_cap['browser']+ " " + CustomLib.desired_cap['browser_version']
+        platformDetails = CustomLib.desired_cap['os'] + " " + CustomLib.desired_cap['os_version']+ " " + CustomLib.desired_cap['browser']
+        # platformDetails = CustomLib.desired_cap['os'] + " " + CustomLib.desired_cap['os_version']+ " " + CustomLib.desired_cap['browser']+ " " + CustomLib.desired_cap['browser_version']
         print(platformDetails)
         return platformDetails
     

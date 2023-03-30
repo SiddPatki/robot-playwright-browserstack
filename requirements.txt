@@ -1,4 +1,4 @@
 robotframework-browser
-robotframework==6.0
-robotframework-pabot==2.13.0
+robotframework
+robotframework-pabot
 browserstack-local
