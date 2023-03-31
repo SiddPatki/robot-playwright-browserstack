@@ -10,10 +10,11 @@ class CustomLib:
     'os': 'os x',
     'os_version': 'Ventura',
     'browser': 'playwright-webkit',  # allowed browsers are `chrome`, `edge`, `playwright-chromium`, `playwright-firefox` and `playwright-webkit`
+    'browser_version': 'latest',
     'browserstack.username': os.environ['BROWSERSTACK_USERNAME'],
     'browserstack.accessKey': os.environ['BROWSERSTACK_ACCESS_KEY'],
     'project': 'BStack Project',
-    'build': 'browserstack-build-11',
+    'build': 'browserstack-build-1',
     'buildTag': 'Regression',
     'resolution': '1280x1024',
     'browserstack.playwrightVersion': '1.latest',
@@ -29,15 +30,13 @@ class CustomLib:
 
 
     def createCdpUrl(self):
-        # clientPlaywrightVersion = str(subprocess.getoutput('playwright --version')).strip().split(" ")[1]
-        # CustomLib.desired_cap['client.playwrightVersion'] = clientPlaywrightVersion
         cdpUrl = 'wss://cdp.browserstack.com/playwright?caps=' + urllib.parse.quote(json.dumps(CustomLib.desired_cap))
         print(cdpUrl)
         return cdpUrl
     
     def getPlatformDetails(self):
-        platformDetails = CustomLib.desired_cap['os'] + " " + CustomLib.desired_cap['os_version']+ " " + CustomLib.desired_cap['browser']
-        # platformDetails = CustomLib.desired_cap['os'] + " " + CustomLib.desired_cap['os_version']+ " " + CustomLib.desired_cap['browser']+ " " + CustomLib.desired_cap['browser_version']
+        # platformDetails = CustomLib.desired_cap['os'] + " " + CustomLib.desired_cap['os_version']+ " " + CustomLib.desired_cap['browser']
+        platformDetails = CustomLib.desired_cap['os'] + " " + CustomLib.desired_cap['os_version']+ " " + CustomLib.desired_cap['browser']+ " " + CustomLib.desired_cap['browser_version']
         print(platformDetails)
         return platformDetails
     
